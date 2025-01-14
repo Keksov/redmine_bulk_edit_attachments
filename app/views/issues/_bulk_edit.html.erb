@@ -1,0 +1,19 @@
+<fieldset class="box" id="bulk_attachments">
+  <legend><%= l(:label_attachment_plural) %></legend>
+  <%= render :partial => 'attachments/form',
+            :locals => {
+              :container => nil
+              #:attachment_param => attachment_param
+            }
+  %>
+</fieldset>
+
+<script>
+  $(document).ready(function() {
+    var attachmentsForm = $('#bulk_attachments');
+    var notesTextarea = $('#notes');
+    if (attachmentsForm.length && notesTextarea.length) {
+      attachmentsForm.insertAfter(notesTextarea);
+    }
+  });
+</script>
